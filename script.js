@@ -10,8 +10,8 @@ const getComputerChoice = () =>
 const getHumanChoice = () =>
   prompt("Rock, Paper, or Scissors");
 
-const humanScore = 0;
-const computerScore = 0;
+// const humanScore = 0;
+// const computerScore = 0;
 
 const playRound = (humanChoice, computerChoice) =>
 humanChoice === computerChoice ? "It's a Tie!": 
@@ -21,7 +21,7 @@ humanChoice === "scissors" && computerChoice === "rock" ? "Computer Wins!!" :
 "You Win!";
 
 
-const humanChoice = getHumanChoice();
+const humanChoice = getHumanChoice().slice(0).toLowerCase();
 const computerChoice = getComputerChoice();
 console.log(playRound(humanChoice, computerChoice));
 console.log(`Your Move: ${humanChoice}`);
