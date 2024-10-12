@@ -3,12 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>RPC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
+
+  <div id="game-container">
+    <!-- Game Title -->
+    <h1 id="game-title">Rock Paper Scissors</h1>
+
+    <span style="color: #00ff00; text-shadow: 0px 0px 10px #00ff00">First to Five</span>
+
+    <!-- Match Tally -->
+    <div id="match-tally-container">
+      <div id="match-tallyLabel">Games Won</div>
+      <div id="match-tally">0</div>
+    </div>
+
+    <!-- Points Tracker -->
+    <div class="scoreboard">
+      <span>Computer: <span id="runningComputerScore">0</span></span>
+      <span class="youMargin">You: <span id="runningHumanScore">0</span></span>
+    </div>
+
+    <!-- Game Buttons -->
+    <div id="game-buttons">
+      <button class="game-btn" data-choice="rock">🪨</button>
+      <button class="game-btn" data-choice="paper">📜</button>
+      <button class="game-btn" data-choice="scissors">✂️</button>
+    </div>
+
+    <!-- Reset Button -->
+    <button id="reset">Reset Game</button>
+
+    <!-- Game Info Display -->
+    <div id="info">
+      <p id="roundWinner"></p>
+      <p id="humanChoice"></p>
+      <p id="computerChoice"></p>
+    </div>
+  </div>
+
+<!-- Modal Structure -->
+<div id="customModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <h2>Game Over</h2>
+    <p id="modalMessage"></p>
+  </div>
+</div>
 
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

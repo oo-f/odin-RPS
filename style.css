@@ -1,0 +1,346 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', 'Arial', sans-serif; 
+  background-color: #2c2c2c;
+  color: #b8b8b8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/image/rDtN98Qoishumwih/black-spooky-background_z1j3LPc__thumb.jpg'); 
+  background-size: cover;
+  background-position: center;
+}
+
+#game-container {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+  max-width: 600px;
+  width: 100%;
+}
+
+
+#game-title {
+  font-size: 3rem;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 10px #ff0000;
+  letter-spacing: 2px;
+  animation: bounce 3s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Match Tally Styles */
+#match-tally-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#match-tallyLabel {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+#match-tally {
+  font-size: 2rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00ff00;
+  text-shadow: 0px 0px 5px #00ff00;
+}
+
+@media (max-width: 768px) {
+  #match-tally-container {
+    top: 10px;
+    right: 10px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #match-tally-container {
+    top: 5px;
+    right: 5px;
+    font-size: 0.8rem;
+  }
+}
+
+
+
+.scoreboard {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px; 
+}
+
+.scoreboard span {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
+
+.scoreboard span:hover {
+  transform: scale(1.1);
+}
+
+#runningHumanScore, #runningComputerScore {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ff00;
+  text-shadow: 0px 0px 10px #00ff00;
+}
+
+.youMargin {
+  margin-left: 20px;
+}
+
+
+#game-buttons {
+  margin-bottom: 20px;
+}
+
+.game-btn {
+  background-color: transparent;
+  border: 2px solid #999;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s;
+  box-shadow: 0px 0px 10px #000;
+}
+
+.game-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Reset Button Styling */
+#reset {
+  background-color: #d9534f;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0px 0px 10px #d9534f;
+  transition: background-color 0.3s;
+}
+
+#reset:hover {
+  background-color: #c9302c;
+}
+
+/* Info Display Styling */
+#info {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+/* Aligned and structured "Your Move" and "Computer Move" */
+#humanChoice, #computerChoice {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-shadow: 1px 1px 5px #000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  display: block; /* Stack vertically by default */
+}
+
+#humanChoice {
+  margin-bottom: 10px; /* Space between the two sections */
+}
+
+/* Round winner styling */
+#roundWinner {
+  clear: both; /* Ensure it clears both floated elements */
+  margin-top: 10px;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 5px #000;
+  padding: 10px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+}
+
+#roundWinner.visible {
+  visibility: visible;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Spooky Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  #game-container {
+    padding: 20px;
+  }
+
+  #game-title {
+    font-size: 2.5rem;
+  }
+
+  .game-btn {
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
+  }
+
+  #reset {
+    font-size: 1.2rem;
+  }
+
+  /* No need to change the alignment here; it remains stacked vertically */
+}
+
+@media (max-width: 480px) {
+  #game-container {
+    padding: 15px;
+  }
+
+  #game-title {
+    font-size: 2rem;
+  }
+
+  .game-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+
+  #reset {
+    font-size: 1rem;
+  }
+
+  /* For very small screens, maintain the stacked vertical layout */
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top of other content */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+  padding-top: 100px; /* Center the modal vertically */
+  animation: fadeIn 0.5s ease-in-out; /* Optional fade-in for the modal */
+}
+
+/* Bounce animation */
+/* Bounce animation */
+@keyframes dropBounce {
+  0% {
+    transform: translateY(-100vh); /* Start above the screen */
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0px); /* Hit the first settle point */
+    opacity: 1;
+  }
+  65% {
+    transform: translateY(-15px); /* First bounce up */
+  }
+  80% {
+    transform: translateY(5px); /* Bounce back down */
+  }
+  100% {
+    transform: translateY(0px); /* Final settle */
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  animation: dropBounce 1.5s ease forwards;
+  background-color: #333;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Blinking text animation (color change) */
+@keyframes blinkColor {
+  0% {
+    color: #0000; /* Red */
+  }
+  25% {
+    color: #ff0000; /* Green */
+  }
+  50% {
+    color: #ffff; /* Blue */
+  }
+  75% {
+    color: #ffb0cC; /* Yellow */
+  }
+  100% {
+  color: #DD0Baa
+}
+}
+
+/* Modal Close */
+.modal-close {
+  color: #f00;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+/* Blinking Text Styles */
+.modal-content h2 {
+  font-size: 1.5rem;
+  animation: blinkColor 0.5s infinite; /* Color change every 0.5s */
+}
+
+
